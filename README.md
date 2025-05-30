@@ -1,70 +1,97 @@
-# Getting Started with Create React App
+# Music Hall Front
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Descrição
+O **Music Hall Front** é a interface de um sistema web desenvolvido para gerenciar eventos musicais. Ele inclui funcionalidades como exibição de eventos, cadastro de usuários, setores e eventos, além de uma navegação dinâmica e responsiva. O projeto utiliza **React** como biblioteca principal para construção da interface e estilização com **CSS**.
 
-## Available Scripts
+## Tecnologias Utilizadas
+- **React**: Biblioteca JavaScript para construção de interfaces de usuário.
+- **React Bootstrap**: Framework para componentes estilizados e responsivos.
+- **CSS**: Estilização personalizada para o design do sistema.
+- **JavaScript (ES6+)**: Lógica e manipulação de estados.
+- **Webpack**: Empacotador de módulos para otimização do projeto.
 
-In the project directory, you can run:
+## Funcionalidades
 
-### `npm start`
+### Home Page
+- Exibição de um título dinâmico com cores alternadas.
+- Lista de eventos em destaque.
+- Carrossel de imagens para navegação visual.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Navegação
+- Menu fixo no topo da página que muda de cor ao rolar a tela.
+- Links para páginas de cadastro de eventos, setores e usuários.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Cadastro
+- Formulários para registro de eventos, setores e usuários.
+- Validação de campos como CPF e limite de caracteres em descrições.
 
-### `npm test`
+### Responsividade
+- Layout adaptável para diferentes tamanhos de tela.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Estrutura do Projeto
+```
+music-hall-front/
+├── src/
+│   ├── components/
+│   ├── pages/
+│   ├── styles/
+│   └── App.js
+├── public/
+├── package.json
+└── README.md
+```
 
-### `npm run build`
+## Instalação
+1. Clone o repositório:
+   ```bash
+   git clone https://github.com/seu-usuario/music-hall-front.git
+   ```
+2. Acesse o diretório do projeto:
+   ```bash
+   cd music-hall-front
+   ```
+3. Instale as dependências:
+   ```bash
+   npm install
+   ```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Como Executar
+1. Inicie o servidor de desenvolvimento:
+   ```bash
+   npm start
+   ```
+2. Abra o navegador e acesse:
+   ```
+   http://localhost:3000
+   ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Scripts Disponíveis
+- `npm start`: Inicia o servidor de desenvolvimento.
+- `npm run build`: Gera a versão de produção do projeto.
+- `npm run lint`: Verifica problemas de lint no código.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Estilização
+### Variáveis de cores
+- `--laranja`: Cor principal para destaques.
+- `--mostarda`: Cor secundária para links.
+- `--escuro`: Fundo e elementos escuros.
+- `--marrom`: Tons de fundo adicionais.
 
-### `npm run eject`
+## Contribuição
+1. Faça um fork do repositório.
+2. Crie uma branch para sua feature:
+   ```bash
+   git checkout -b minha-feature
+   ```
+3. Faça commit das suas alterações:
+   ```bash
+   git commit -m "Adiciona minha feature"
+   ```
+4. Envie para o repositório remoto:
+   ```bash
+   git push origin minha-feature
+   ```
+5. Abra um Pull Request.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Licença
+Este projeto está licenciado sob a licença MIT. Consulte o arquivo [LICENSE](LICENSE) para mais detalhes.
