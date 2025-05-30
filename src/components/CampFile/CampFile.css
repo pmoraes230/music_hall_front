@@ -1,0 +1,14 @@
+input[type="file"] {
+    display: none;
+}
+
+.label_file {
+    border: 2px solid var(--mostarda) !important;
+    background-color: var(--escuro) !important;
+    color: var(--laranja) !important;
+    height: 3rem !important;
+    display: flex;
+    align-items: center;
+    padding: 0 1rem;
+    border-radius: 5px;
+}

@@ -10,7 +10,7 @@ export const FormWithPassword = () => {
                 <Campotexto label="Nome" for="nome" name="nome" />
                 <CampWithPassword label="Senha" />
                 <div className='container_btn'>
-                    <Button nameBtn="Entrar" to={'/registerUser'}/>
+                    <Button nameBtn="Entrar" to={'/Home'}/>
                 </div>
             </form>
         </section>

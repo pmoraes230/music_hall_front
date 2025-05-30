@@ -1,25 +1,39 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import './navBar.css';
 import { Navbar, Nav, NavDropdown, Container } from 'react-bootstrap';
 
 export const NavBarPage = () => {
+    const [scrolled, setScroLled] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            if(window.scrollY > 50) {
+                setScroLled(true)
+            } else {
+                setScroLled(false);
+            }
+        };
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+    
     return (
-        <header className="container_menu">
+        <header className={`container_menu ${scrolled ? 'scrolled' : ''}`}>
             <Navbar expand="lg" className="navbar">
                 <Container className="container_header">
-                    <Navbar.Brand href="/" className="logo_senac">
+                    <Navbar.Brand href="/Home" className="logo_senac">
                         <img src="./icons/senac.svg" alt="logo_senac" />
                     </Navbar.Brand>
                     <Navbar.Toggle aria-controls="navbarNavDropdown" />
                     <Navbar.Collapse id="navbarNavDropdown" className="menu_link">
                         <Nav className="menu_container color_laranja">
-                            <Nav.Link href="#/action-1" className="nav-item link_menu color_mostarda">
+                            <Nav.Link href="/registerEvents" className="nav-item link_menu color_mostarda">
                                 Evento
                             </Nav.Link>
-                            <Nav.Link href="#/action-2" className="nav-item link_menu color_mostarda">
+                            <Nav.Link href="/registerSetor" className="nav-item link_menu color_mostarda">
                                 Setor
                             </Nav.Link>
-                            <Nav.Link href="#/action-3" className="nav-item link_menu color_mostarda">
+                            <Nav.Link href="/registerUser" className="nav-item link_menu color_mostarda">
                                 Usuário
                             </Nav.Link>
                             <NavDropdown

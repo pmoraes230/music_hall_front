@@ -1,0 +1,70 @@
+.container {
+    max-width: 1900px !important;
+}
+
+.content_home {
+    background-image: url(../Home/images/bg_home.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+}
+
+.container_title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 13% 0;
+}
+
+.title_main {
+    color: var(--laranja);
+    font-size: 8rem;
+    font-weight: bold;
+}
+
+.center {
+    text-align: center;
+}
+
+.space {
+    padding: 4rem 0;
+    margin-top: 10rem;
+}
+
+.sub_title {
+    color: var(--laranja);
+    font-size: 60px;
+    font-family: "Anek Tamil", sans-serif;
+    font-weight: bold;
+}
+
+.cards_container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: start;
+    gap: 76px;
+}
+
+.container_carousel {
+    padding: 3rem 0;
+}
+
+.color_laranja {
+    color: var(--laranja);
+}
+
+.color_mostarda {
+    color: var(--mostarda);
+}
+
+.color_laranja_escuro {
+    color: var(--laranja_escuro);
+}
+
+.color_marrom {
+    color: var(--marrom);
+}
+
+.color_escuro {
+    color: var(--escuro);
+}

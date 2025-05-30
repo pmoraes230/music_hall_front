@@ -6,13 +6,6 @@
     font-variation-settings: "wdth" 100;
 }
 
-.container_title {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 3% 0;
-}
-
 .title {
     color: var(--laranja);
     font-weight: bold;

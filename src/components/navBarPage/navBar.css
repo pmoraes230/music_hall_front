@@ -1,14 +1,24 @@
-.container_header {
-    display: flex !important;
-    align-items: center !important;
-    gap: 55rem;
-}
-
 .container_menu {
+    position: fixed; /* Torna o menu fixo no topo */
+    top: 0;
+    width: 100%;
+    z-index: 1000; /* Garante que o menu fique acima de outros elementos */
     display: flex;
     padding: 1.5rem 0;
     align-items: center;
     justify-content: space-around;
+    gap: 55rem;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Suaviza a transição do fundo e da sombra */
+}
+
+.container_menu.scrolled {
+    background-color: var(--escuro); /* Cor de fundo ao rolar a página */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Adiciona uma sombra para destaque */
+}
+
+.container_header {
+    display: flex !important;
+    align-items: center !important;
     gap: 55rem;
 }
 

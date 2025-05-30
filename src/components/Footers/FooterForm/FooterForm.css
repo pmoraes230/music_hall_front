@@ -1,0 +1,9 @@
+.footer_bg {
+    background-color: var(--marrom);
+    padding: 3rem;
+    text-align: center;
+    margin-top: 5rem;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+}

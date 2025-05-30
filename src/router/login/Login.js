@@ -1,4 +1,4 @@
-import FormWithPassword from "components/FormularioSenha";
+import FormWithPassword from "components/Formularios/FormularioSenha";
 import LogoSenac from "components/Logo_senac";
 import React from "react";
 

@@ -1,0 +1,14 @@
+.card_show {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 20px !important;
+}
+
+.letter_card {
+    color: var(--laranja);
+    font-weight: bold;
+    font-family: "Anek Tamil", sans-serif;
+    font-size: 25px;
+    text-align: left;
+}
