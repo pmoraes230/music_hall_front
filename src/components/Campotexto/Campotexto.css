@@ -1,0 +1,26 @@
+.color_laranja {
+    color: var(--laranja);
+}
+
+.body_fonts {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.content_text {
+    width: 100%;
+}
+
+.input_hall {
+    border: 2px solid var(--mostarda) !important;
+    background-color: var(--escuro) !important;
+    color: var(--laranja) !important;
+    height: 3rem !important;
+}
+
+.input_hall:focus {
+    background-color: var(--escuro) !important;
+    border: var(--laranja) !important;
+    box-shadow: 0 0 0 .25rem rgb(233, 113, 1) !important;
+    color: var(--laranja) !important;
+}

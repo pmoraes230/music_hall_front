@@ -1,0 +1,10 @@
+.content_form {
+    width: 30%;
+    margin: auto;
+}
+
+.container_btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

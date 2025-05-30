@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Anek+Tamil:wght@100..800&display=swap');
+
+* {
+    font-family: "Anek Tamil", sans-serif;
+    font-style: normal;
+    font-variation-settings: "wdth" 100;
+}
+
+.container_title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 3% 0;
+}
+
+.title {
+    color: var(--laranja);
+    font-weight: bold;
+}

@@ -1,0 +1,11 @@
+.btn_hall {
+    background-color: var(--mostarda) !important;
+    font-size: 20px !important;
+    color: var(--laranja) !important;
+    font-weight: bold !important;
+}
+
+.btn_hall:hover {
+    background-color: var(--laranja_escuro) !important;
+    color: var(--laranja) !important;
+}
