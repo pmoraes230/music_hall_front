@@ -12,7 +12,7 @@ export const Home = () => {
     useEffect(() => {
         const interval = setInterval(() => {
             setColorIndex((prevIndex) => (prevIndex + 1) % colors.length); // Alterna entre as cores
-        }, 5000);
+        }, 1000);
 
         return () => clearInterval(interval); // Limpa o intervalo ao desmontar o componente
     }, [colors.length]);
