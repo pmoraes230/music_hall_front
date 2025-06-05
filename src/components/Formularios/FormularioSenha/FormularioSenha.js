@@ -3,7 +3,7 @@ import './FormularioSenha.css';
 import CampWithPassword from 'components/CampoSenha';
 import ButtonSub from 'components/Button';
 import { useState } from 'react';
-import { loginUser } from 'api/api_usuarios';
+import { loginUser } from 'api/user/api_usuarios';
 import { useNavigate } from 'react-router-dom';
 
 export const FormWithPassword = () => {
@@ -24,17 +24,15 @@ export const FormWithPassword = () => {
             // Faz login e obtém o token
             const token = await loginUser(username, password);
             setSuccess('Login realizado com sucesso!');
-            console.log('Token recebido:', token);
 
             // Salva o token no localStorage
-            // localStorage.setItem('authToken', token);
+            localStorage.setItem('authToken', token);
 
             // Redireciona para a página inicial
             navigate('/Home');
         } catch (error) {
             const errorMessage = error.response?.data?.message || 'Erro ao fazer login. Verifique suas credenciais.';
             setError(errorMessage);
-            console.error('Erro ao fazer login:', error);
         } finally {
             setLoading(false);
         }

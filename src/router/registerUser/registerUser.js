@@ -8,7 +8,7 @@ export const registerUser = () => {
         <div>
             <NavBarPage/>
             <div className="container_form">
-                <h1 className="center space sub_title">Cadastro de Usuário</h1>
+                <h1 className="center space-12 sub_title">Cadastro de Usuário</h1>
                 <FormularioWithSelect/>
                 <FooterForm/>
             </div>

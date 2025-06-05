@@ -1,19 +1,40 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Campotexto from 'components/Campotexto';
 import './Formulario.css';
 import ListaSuspensa from 'components/ListaSuspensa';
 import ButtonSub from 'components/Button/';
+import getProfile from 'api/profile/getProfile';
+import { createUser } from 'api/user/apiCrudUsuario';
 
 export const FormularioWithSelect = () => {
+    const [nome, setNome] = useState('');
+    const [usuario, setUsuario] = useState('');
+    const [senha, setSenha] = useState('');
     const [cpf, setCpf] = useState('');
     const [cpfError, setCpfError] = useState('');
+    const [profile, setProfile] = useState(null)
+    const [email, setEmail] = useState('');
+    const [error, setError] = useState(null)
+    const [success, setSuccess] = useState(null)
+    const [selectedProfile, setSelectedProfile] = useState('');
 
-    const perfis = [
-        'Administrador',
-        'Vendedor',
-        'Leitor'
-    ];
+    useEffect(() =>{
+        const fetchProfile = async () => {
+            try {
+                const data = await getProfile();
+                setProfile(data)
+            } catch (error) {
+                setError('Erro ao buscar perfil')
+            }
+        };
 
+        fetchProfile();
+    }, []) 
+
+    const handleProfileChange = (e) => {
+        setSelectedProfile(e.target.value);
+    };
+    
     const validarCPF = (cpf) => {
         // Remove caracteres não numéricos
         cpf = cpf.replace(/[^\d]+/g, '');
@@ -60,19 +81,57 @@ export const FormularioWithSelect = () => {
         }
     };
 
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const userData = {
+            nome: nome,
+            usuario: usuario,
+            cpf: cpf,
+            perfil: selectedProfile,
+            email: email, 
+            senha: senha
+        }
+
+        if (!nome || !usuario || !cpf || !selectedProfile || !email) {
+            setError('Por favor, preencha todos os campos obrigatórios.')
+            setSuccess(null)
+            return
+        }
+
+        try {
+            createUser(userData);
+            setSuccess("Usuário criado com sucesso!");
+            setError(null)
+
+            setNome('');
+            setUsuario('');
+            setCpf('');
+            setEmail('');
+            setSenha('');
+            selectedProfile('');
+        } catch (error) {
+            setError(error.response?.data?.message || "Erro ao criar o usuário. Tente novamente.");
+            setSuccess(null)
+        }
+
+    }
+
     return (
         <section className='content_form'>
-            <form className='form_content'>
-                <Campotexto required={true} label="Nome" for="nome" type="text" id="nome"/>
-                <Campotexto required={true} label="Usuario" for="usuario" id="usuario" type="text" />
-                <Campotexto required={true} label="CPF" for="cpf" id="cpf" type="text" value={cpf} onChange={handleCpfChange} />
+            <form className='form_content' onSubmit={handleSubmit}>
+                <Campotexto label="Nome" for="nome" type="text" id="nome" value={nome} onChange={(e) => setNome(e.target.value)}/>
+                <Campotexto label="Usuario" for="usuario" id="usuario" type="text" value={usuario} onChange={(e) => setUsuario(e.target.value)}/>
+                <Campotexto label="Senha" for="senha" id="senha" type="text" value={senha} onChange={(e) => setSenha(e.target.value)}/>
+                <Campotexto label="CPF" for="cpf" id="cpf" type="text" value={cpf} onChange={handleCpfChange} />
                 {cpfError && <span className="error">{cpfError}</span>}
-                <ListaSuspensa required={true} label="Perfil" for="perfil" id="perfil" itens={perfis} />
-                <Campotexto required={true} label="Email" for="email" id="email" type="email" />
+                <ListaSuspensa label="Perfil" for="perfil" id="perfil" itens={profile} value={selectedProfile} onChange={handleProfileChange}/>
+                <Campotexto label="Email" for="email" id="email" type="email" value={email} onChange={(e) => setEmail(e.target.value)}/>
                 <div className='container_btn'>
                     <ButtonSub nameBtn="Cadastrar" />
                 </div>
             </form>
+            {error && <p className="error">{error}</p>}
+            {success && <p className="error">{success}</p>}
         </section>
     );
 };

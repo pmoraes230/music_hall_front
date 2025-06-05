@@ -1,22 +1,29 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import './navBar.css';
 import { Navbar, Nav, NavDropdown, Container } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 
 export const NavBarPage = () => {
-    const [scrolled, setScroLled] = useState(false);
+    const [scrolled, setScrolled] = useState(false);
+    const navigate = useNavigate(); // Hook para redirecionamento
 
     useEffect(() => {
         const handleScroll = () => {
-            if(window.scrollY > 50) {
-                setScroLled(true)
+            if (window.scrollY > 50) {
+                setScrolled(true);
             } else {
-                setScroLled(false);
+                setScrolled(false);
             }
         };
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
-    
+
+    const handleLogout = () => {
+        localStorage.removeItem('authToken'); // Remove o token do localStorage
+        navigate('/'); // Redireciona para a página de login
+    };
+
     return (
         <header className={`container_menu ${scrolled ? 'scrolled' : ''}`}>
             <Navbar expand="lg" className="navbar">
@@ -36,6 +43,9 @@ export const NavBarPage = () => {
                             <Nav.Link href="/registerUser" className="nav-item link_menu color_mostarda">
                                 Usuário
                             </Nav.Link>
+                            <Nav.Link href="/registerProfile" className="nav-item link_menu color_mostarda">
+                                Perfil
+                            </Nav.Link>
                             <NavDropdown
                                 title={
                                     <img
@@ -50,7 +60,7 @@ export const NavBarPage = () => {
                                 <NavDropdown.Item href="#/action" className="color_mostarda bg_black size_16">
                                     Conta
                                 </NavDropdown.Item>
-                                <NavDropdown.Item href="#/action-2" className="color_mostarda bg_black">
+                                <NavDropdown.Item onClick={handleLogout} className="color_mostarda bg_black">
                                     Sair
                                 </NavDropdown.Item>
                             </NavDropdown>

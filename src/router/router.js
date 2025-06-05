@@ -5,19 +5,26 @@ import registerUser from "./registerUser";
 import { Home } from "./Home/Home";
 import RegisterSetor from "./registerSetor";
 import registerEvents from "./registerEvents";
+import PrivateRoute from "./PrivateRouter";
+import PublicRoute from "./PublicRoute";
+import registerProfile from "./registerProfile";
 
 const Router = () => {
-    return(
+    return (
         <BrowserRouter>
             <Routes>
-                <Route Component={Login} path="/" exact/>
-                <Route Component={Home} path="/Home"/>
-                <Route Component={registerUser} path="/registerUser"/>
-                <Route Component={RegisterSetor} path="/registerSetor"/>
-                <Route Component={registerEvents} path="/registerEvents"/>
+                {/* Rota pública */}
+                <Route path="/" element={<PublicRoute Component={Login} />} />
+
+                {/* Rotas privadas */}
+                <Route path="/Home" element={<PrivateRoute Component={Home} />} />
+                <Route path="/registerUser" element={<PrivateRoute Component={registerUser} />} />
+                <Route path="/registerSetor" element={<PrivateRoute Component={RegisterSetor} />} />
+                <Route path="/registerEvents" element={<PrivateRoute Component={registerEvents} />} />
+                <Route path="/registerProfile" element={<PrivateRoute Component={registerProfile}/>} />
             </Routes>
         </BrowserRouter>
-    )
-}
+    );
+};
 
-export default Router
+export default Router;

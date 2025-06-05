@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'http://127.0.0.1:8000';
+const API_URL = process.env.REACT_APP_API_URL;
 
 // Função para autenticar o usuário
 export const loginUser = async (username, password) => {
@@ -11,7 +11,6 @@ export const loginUser = async (username, password) => {
         });
         return response.data; // Retorna os dados do login
     } catch (error) {
-        console.error("Erro ao fazer login:", error);
         throw error;
     }
 };
@@ -26,7 +25,6 @@ export const getProtectedData = async (token) => {
         });
         return response.data;
     } catch (error) {
-        console.error("Erro ao buscar dados protegidos:", error);
         throw error;
     }
 };
