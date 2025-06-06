@@ -7,7 +7,7 @@ export const ListaSuspensa = (props) => {
                 {props.label}
             </label>
             <select required={props.required} id={props.id} onChange={props.onChange} className='form-control input_hall color_laranja'>
-                <option value="" disabled>
+                <option value="" disabled selected>
                     Selecione uma opção
                 </option>
                 {props.itens &&
