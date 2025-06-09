@@ -9,7 +9,11 @@ export const loginUser = async (username, password) => {
             username: username, // Certifique-se de que os campos estão corretos
             password: password,
         });
-        return response.data; // Retorna os dados do login
+        
+        const { token, user_id} = response.data;
+
+        localStorage.setItem('authToken', token); // Armazena o token no localStorage
+        localStorage.setItem('userId', user_id); // Armazena o ID do usuário no localStorage
     } catch (error) {
         throw error;
     }

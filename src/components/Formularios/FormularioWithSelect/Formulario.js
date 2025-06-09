@@ -88,8 +88,6 @@ export const FormularioWithSelect = () => {
             senha: senha
         }
 
-        console.log(userData)
-
         if (!nome || !login || !cpf || !selectedProfile || !e_mail || !senha) {
             setError('Por favor, preencha todos os campos obrigatórios.')
             setSuccess(null)
@@ -129,8 +127,8 @@ export const FormularioWithSelect = () => {
                     <ButtonSub nameBtn="Cadastrar" />
                 </div>
             </form>
-            {error && <p className="error">{error}</p>}
-            {success && <p className="error">{success}</p>}
+            {error && <p className="color_laranja">{error}</p>}
+            {success && <p className="color_laranja">{success}</p>}
         </section>
     );
 };

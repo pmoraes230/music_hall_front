@@ -7,7 +7,7 @@ export const registerEvents = () => {
     return (
         <div>
             <NavBarPage/>
-            <h1 className="center space sub_title">Cadastro Evento</h1>
+            <h1 className="center space_event sub_title">Cadastro Evento</h1>
             <FormWithArea/>
             <FooterForm/>
         </div>

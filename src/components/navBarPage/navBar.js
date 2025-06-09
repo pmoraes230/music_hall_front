@@ -21,6 +21,7 @@ export const NavBarPage = () => {
 
     const handleLogout = () => {
         localStorage.removeItem('authToken'); // Remove o token do localStorage
+        localStorage.removeItem('userId'); // Remove o ID do usuário do localStorage
         navigate('/'); // Redireciona para a página de login
     };
 
