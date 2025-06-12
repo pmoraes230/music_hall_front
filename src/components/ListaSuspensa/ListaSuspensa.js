@@ -17,7 +17,8 @@ export const ListaSuspensa = (props) => {
                                 {item.nome}
                             </option>
                         );
-                    })}
+                    })
+                };
             </select>
         </div>
     );

@@ -58,7 +58,7 @@ export const NavBarPage = () => {
                                 id="dropdown-basic"
                                 className="dropContainer"
                             >
-                                <NavDropdown.Item href="#/action" className="color_mostarda bg_black size_16">
+                                <NavDropdown.Item href="/upUser" className="color_mostarda bg_black size_16">
                                     Conta
                                 </NavDropdown.Item>
                                 <NavDropdown.Item onClick={handleLogout} className="color_mostarda bg_black">

@@ -37,3 +37,4 @@ export const getEvents = async () => {
         throw error; // Repassa o erro para ser tratado onde a função é chamada
     }
 }
+

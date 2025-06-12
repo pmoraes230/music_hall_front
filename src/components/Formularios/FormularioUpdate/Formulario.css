@@ -1,0 +1,24 @@
+.content_form {
+    width: 30%;
+    margin: auto;
+}
+
+.container_btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 0;
+}
+
+.btn_delete {
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin-left: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.btn_delete:hover {
+    background-color: #cc0000;
+}

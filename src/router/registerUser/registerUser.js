@@ -10,8 +10,8 @@ export const registerUser = () => {
             <div className="container_form">
                 <h1 className="center space-12 sub_title">Cadastro de Usuário</h1>
                 <FormularioWithSelect/>
-                <FooterForm/>
             </div>
+            <FooterForm/>
         </div>
     )
 }
