@@ -3,21 +3,32 @@ import axios from "axios";
 const API_URL = process.env.REACT_APP_API_URL;
 
 export const createEvents = async (eventData) => {
-    const token = localStorage.getItem("authToken"); // Obtém o token do usuário logado
-    const userId = localStorage.getItem("userId"); // Obtém o ID do usuário logado
-
-    // Adiciona o ID do usuário ao FormData
-    eventData.append('usuario', userId);
-
-    const response = await axios.post(`${API_URL}/eventos/`, eventData, {
+    try {
+      // Log para depuração
+      console.log('FormData enviado:', [...eventData.entries()]);
+  
+      const response = await axios.post(`${API_URL}/eventos/`, eventData, {
         headers: {
-            Authorization: `Bearer ${token}`, // Envia o token no cabeçalho
-            'Content-Type': 'multipart/form-data' // Necessário para enviar arquivos
-        }
-    });
-
-    return response.data;
-};
+          'Content-Type': 'multipart/form-data',
+        },
+      });
+  
+      return response.data;
+    } catch (error) {
+      console.error('Erro em createEvents:', error);
+      if (error.response) {
+        throw new Error(
+          error.response.data.detail ||
+          error.response.data.error ||
+          `Erro ${error.response.status}: Não foi possível criar o evento.`
+        );
+      } else if (error.request) {
+        throw new Error('Sem resposta do servidor. Verifique sua conexão.');
+      } else {
+        throw new Error(error.message || 'Erro ao criar evento.');
+      }
+    }
+  };
 
 export const getEvents = async () => {
     try {

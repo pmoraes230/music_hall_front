@@ -30,8 +30,8 @@ export const Form = () => {
 
         const dataEvents = {
             nome: nome,
-            qtd_cadeira: qtdCadeira,
-            id_evento: selectEvents
+            qtd_cadeira: parseFloat(qtdCadeira),
+            id_evento: parseInt(selectEvents)
         }
 
         console.log(dataEvents);

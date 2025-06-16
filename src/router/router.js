@@ -9,6 +9,7 @@ import RegisterSetor from "./registerSetor";
 import registerEvents from "./registerEvents";
 import registerProfile from "./registerProfile";
 import upUser from "./upUser";
+import assentsEvents from "./assentos";
 
 const Router = () => {
     return (
@@ -24,6 +25,7 @@ const Router = () => {
                 <Route path="/registerEvents" element={<PrivateRoute Component={registerEvents} />} />
                 <Route path="/registerProfile" element={<PrivateRoute Component={registerProfile}/>} />
                 <Route path="/upUser" element={<PrivateRoute Component={upUser}/>}/>
+                <Route path="/assentos" element={<PrivateRoute Component={assentsEvents}/>}/>
             </Routes>
         </BrowserRouter>
     );
